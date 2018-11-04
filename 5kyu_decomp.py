@@ -15,11 +15,11 @@ def decomp(num):
     return ' * '.join(ones2)
 
 def primeFactor(n):
-    decomp = []
+    lst = []
     i = 2
     while n > 1:
         while n % i == 0: #如果能被i整除
             n /= i
-            decomp.append(i) #在list里加入i的值
+            lst.append(i) #在list里加入i的值
         i += 1 #如果不能被整除，则i+1
-    return decomp
+    return lst
