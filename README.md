@@ -1,2 +1,2 @@
 # LearnCodewars
-学习codewars上的题目
+One Kata everyday.
