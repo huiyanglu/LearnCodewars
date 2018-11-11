@@ -1,3 +1,15 @@
+"""
+Sort - one, three, two
+
+https://www.codewars.com/kata/56f4ff45af5b1f8cd100067d
+
+Sort these integers for me ...
+
+By name ...
+
+Do it now !
+
+"""
 def sort_by_name(arr):
     x = sorted(arr, key=convert)
     return x
