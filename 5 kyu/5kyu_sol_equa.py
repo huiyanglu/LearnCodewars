@@ -1,4 +1,8 @@
 """
+Diophantine Equation
+
+https://www.codewars.com/kata/554f76dca89983cc400000bb
+
 Description:
 https://en.wikipedia.org/wiki/Diophantine_equation
 In mathematics, a Diophantine equation is a polynomial equation, usually with two or more unknowns, such that only the integer solutions are sought or studied.
