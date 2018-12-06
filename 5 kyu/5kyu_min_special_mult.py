@@ -55,30 +55,19 @@ def lcm(a, b):
     return a * b // gcd(a, b)
 
 def min_special_mult(alist):
-    lst = []
-    idx = True
+    invalid_lst = []
     for i in alist:
-        if str(i)[0]=='-': #如果有'-012'
+        str_i = i
+        if str(i)[0]=='-':
             str_i = int(str(i)[1:])
-        else:
-            str_i = i
-        if i==None: #如果有None
-            idx = alist.index(i)
-            pass
-        elif not (isinstance(str_i,int) or str(str_i).isdigit()):
-            if i!=None:
-                lst.append(i)
-    if str(idx).isdigit(): #如果有符号等
-        alist.pop(idx)
+        if isinstance(str_i,str) and not str(str_i).isdigit() and i!=None:
+            invalid_lst.append(i)
+    if invalid_lst==[]:
+        lst2 = [abs(int(i)) for i in alist if i is not None]
+        return reduce(lcm,lst2)
+    elif len(invalid_lst)==1:
+        return 'There is {} invalid entry: {}'.format(str(len(invalid_lst)),str(invalid_lst[0]))
     else:
-        pass
-    if lst==[]:
-        lst2 = [abs(int(i)) for i in alist]
-        a = reduce(lcm,lst2)
-        return a
-    elif len(lst)==1:
-        return 'There is '+str(len(lst))+ ' invalid entry: '+ str(lst[0])
-    else:
-        return 'There are '+str(len(lst))+ ' invalid entries: '+ str(lst)
+        return 'There are {} invalid entries: {}'.format(str(len(invalid_lst)), str(invalid_lst))
 
-print(min_special_mult([16, 15, 23,None,'a', '-012']))
+print(min_special_mult([16, 15, 23,None,'a','b', '-012']))
