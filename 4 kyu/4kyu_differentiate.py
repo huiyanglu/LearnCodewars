@@ -23,8 +23,8 @@ def differentiate(equation,point):
     res = re.split(r'(\+|-)',equation)
     res1 = res[1:]
     res1 = [res[0]]+["".join(i).strip() for i in zip(res1[0::2],res1[1::2])]
-    #if res1[0] == '':
-        #res1.pop(0)
+    if res1[0] == '':
+        res1.pop(0)
     if '^' in res1[0]:
         zhishuMax = res1[0][res1[0].index('^')+1:]
         l = int(zhishuMax)+1
