@@ -33,18 +33,15 @@ validate('.codewars.com') == False
 validate('example@codewars.com') == False
 validate('127.0.0.1') == False
 """
-
 import re
 
 def validate(domain):
-    return re.match('''
-        (?=^.{,253}$)          # max. length 253 chars
-        (?!^.+\.\d+$)          # TLD is not fully numerical
-        (?=^[^-.].+[^-.]$)     # doesn't start/end with '-' or '.'
-        (?!^.+(\.-|-\.).+$)    # levels don't start/end with '-'
-        (?:[a-z\d-]            # uses only allowed chars
-        {1,63}(\.|$))          # max. level length 63 chars
-        {2,127}                # max. 127 levels
-        ''', domain, re.X | re.I)
+	return re.match('''
+		(?=^.{,253}$)
+		(?!^.+\.\d+$)
+		(?=^[^-.].+[^-.]$)
+		(?!^.+(\.-|-\.).+$)
+		(?:[a-z\d-]{1,63}(\.|$)){2,127}
+		''',domain,re.X|re.I)
 
 print(validate('codewars.com'))
