@@ -29,8 +29,6 @@ def list_squared(m,n):
         rst = getDivisor(num)
         if (rst**0.5)%1==0:
             lst.append([num,rst])
-        else:
-            num+=1
     return lst
 
 def getDivisor(num):
@@ -42,3 +40,5 @@ def getDivisor(num):
             if int(num/i)!=i:
                 sum1 += int(num/i)**2
     return sum1
+
+print(list_squared(1,250))
