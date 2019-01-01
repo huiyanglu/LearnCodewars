@@ -11,12 +11,9 @@ and the result should be returned as an array like [1, 4, -2] (i.e. [x, y, z]).
 import numpy as np
 
 def solve_eq(eq):
-    lst1 = []
-    lst2 = []
-    for i in range(0,len(eq)):
-        lst1.append(eq[i][-1])
-        lst2.append(eq[i][:-1])
-    rst = np.linalg.solve(lst2, lst1)
+    lst1 = [arr[:-1] for arr in eq]
+    lst2 = [arr[-1] for arr in eq]
+    rst = np.linalg.solve(lst1,lst2)
     return [int(round(x)) for x in list(rst)]
 
 eq = [[-26, 28, 13, -124], [7, -26, -24, -63], [28, -2, -4, 238]]
