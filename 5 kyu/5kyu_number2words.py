@@ -46,10 +46,10 @@ def number2words(n):
     if n < 20:
         return digits[n]
     elif n < 100:
-        return decades[n//10-1] + ('' if n % 10 == 0 else '-' + digits[n % 10])
-    elif n<1000:
-        return number2words(n//100) + ' hundred' + (' ' + number2words(n % 100) if n % 100 > 0 else '')
+        return decades[n//10-1] + ('-' + digits[n % 10] if n % 10 > 0 else '')
+    elif n < 1000:
+        return digits[n//100] + ' hundred' + (' '+ number2words(n%100) if n%100>0 else '')
     elif n<1000000:
-        return number2words(n // 1000) + " thousand" + (' ' + number2words(n % 1000) if n % 1000 > 0 else '')
+        return number2words(n//1000) + ' thousand' + (' '+ number2words(n%1000) if n%1000>0 else '')
 
 print(number2words(869043))
