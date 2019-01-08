@@ -44,22 +44,22 @@ number of tests = 200
 Enjoy!
 
 """
-from functools import reduce
+import time
 
-def count_find_num(primesL,limit):
-    base = reduce(lambda x, y: x * y, primesL)
+start_CPU3 = time.clock()
+def count_find_num3(a,limit):
+    base = eval('*'.join(map(str, a)))
     rst1 = [base]
     if base>limit:
         return []
-    for each in primesL:
+    for each in a:
         for num in rst1:
             num = num * each
-            if num > limit:# 如果排列后的rst1的num已经大于limit了，就不继续往下遍历直接退出循环进入下一项了
-                break
-            else:
-                while num not in rst1 and num<=limit:
-                    rst1 = sorted(rst1+[num])#加入列表的数字是未排序的，及时排序可以减少遍历次数
-                    num*=each
+            while num not in rst1 and num<=limit:
+                rst1=rst1+[num]
+                num *= each
     return [len(rst1),max(rst1)]
 
-print(count_find_num([2,3,5],500))
+print(count_find_num3([2,3,5],135976673702376))
+end_CPU3 = time.clock()
+print("s solution: %f CPU seconds" % (end_CPU3 - start_CPU3))
