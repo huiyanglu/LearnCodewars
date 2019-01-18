@@ -14,14 +14,12 @@ Empty list is considered to have zero greatest sum. Note that the empty list or 
 """
 
 def maxSequence(arr):
-    if arr == []:
-        return 0
-    else:
-        a = []
-        for i in range(0,len(arr)):
-            for j in range(0,len(arr)):
-                sum2 = sum(arr[i:j+1])
-                a.append(sum2)
-        return max(a)
+    a = 0
+    for i in range(0,len(arr)):
+        for j in range(0,len(arr)):
+            sum2 = sum(arr[i:j+1])
+            if sum2>a:
+                a = sum2
+    return a
 
 print(maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]))
