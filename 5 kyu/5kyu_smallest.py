@@ -29,16 +29,18 @@ Have a look at "Sample Tests" to see the input and output in each language
 
 """
 
-
 def smallest(n):
     n2 = [i for i in str(n)]
-    x = []
-    for i,n in enumerate(n2):
+    min1, i0, j0 = n, 0, 0
+    for i,n in enumerate(n2):#i是索引 n是值
         ns = list(n2)
         ns.pop(i)
         for j in range(len(n2)):
             x2 = list(ns)
             x2.insert(j,n)
             x2 = int(''.join(x2))
-            x.append([x2,i,j])
-    return min(x,key = lambda x:x[0])
+            if x2 < min1:
+                min1,i0,j0=x2,i,j
+    return min1,i0,j0
+
+print(smallest(10000))    
