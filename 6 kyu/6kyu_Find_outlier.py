@@ -14,16 +14,8 @@ Should return: 160 (the only even number)
 """
 
 def find_outlier(integers):
-    even = []
-    odd = []
-    for num in integers:
-        if num % 2 == 0:
-            even.append(num)
-        else:
-            odd.append(num)
-    if len(even)>1 and len(odd)==1:
-        return odd[0]
-    elif len(odd)>1 and len(even)==1:
-        return even[0]
+    evens = [num for num in integers if num%2==0]
+    odds = [num for num in integers if num%2!=0]
+    return odds[0] if len(odds)<len(evens) else evens[0]
 
 print(find_outlier([1,2,3]))
