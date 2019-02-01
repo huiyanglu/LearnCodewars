@@ -23,12 +23,9 @@ I have created other katas. Have a look if you like coding and challenges.
 """
 
 def sum_array(arr):
-    if arr==None:
+    if arr==None or len(arr)<3:
         return 0
-    elif len(arr)>1:
+    else:
         arr.remove(min(arr))
         arr.remove(max(arr))
         return sum(arr)
-    else:
-        return 0
-print(sum_array([1,2,3]))
