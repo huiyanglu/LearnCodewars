@@ -23,24 +23,10 @@ If there are no numbers of this kind in the range [a, b] the function should out
 sum_dig_pow(90, 100) == []
 """
 
-def sum_dig_pow(a, b): # range(a, b + 1) will be studied by the function
-    # your code here
-    lst = []
-    for i in range(a,b+1):
-        if if_true(i):
-            lst.append(i)
-    return lst
+def ans(num):
+    return sum([int(j)**(int(i)+1) for i,j in enumerate(str(num))])
 
-def if_true(num):
-    num2 = num
-    i = len(str(num))
-    s = 0
-    while num2!=0:
-        mod = num2%10
-        num2//=10
-        s+=mod**i
-        i-=1
-    if(s==num):
-        return True
-    else:
-        return False
+def sum_dig_pow(a,b):
+    return [ans(each) for each in range(a,b+1) if ans(each)==each]
+
+print(sum_dig_pow(80,100))
