@@ -61,15 +61,14 @@
 #
 class Solution:
     def isValid(self, s: str) -> bool:
-        if s == '':
-            return True
-        while True:
-            if ('()' in s) or ('{}' in s) or ('[]' in s):
-                s = s.replace('()','')
-                s = s.replace('{}','')
-                s = s.replace('[]','')
-                if s == '':
-                    return True
-            else:
+        dic = {'(':')','[':']','{':'}'}
+        rst = []
+        for each in s:
+            if each in dic.keys():
+                rst.append(each)
+            elif len(rst)==0 or each != dic[rst.pop()]:
                 return False
+        if len(rst)==0:
+            return True
+        return False
 
