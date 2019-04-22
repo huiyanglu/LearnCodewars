@@ -52,9 +52,26 @@ import re
 
 class Solution:
     def countAndSay(self, n: int) -> str:
-        s = '1'
-        for _ in range(n - 1):
-            s = ''.join(str(len(list(group))) + digit
-                        for digit, group in itertools.groupby(s))
-        return s
+        i = 1
+        count_i = self.count_and_say(i)
+        if n==1:return "1"
+        while i<n-1:
+            count_i = self.count_and_say(count_i)
+            i+=1
+        return count_i
+    def count_and_say(self, n:int):
+        result = ''
+        strn = str(n)
+        char = strn[0]
+        count = 0
+        for each in strn:
+            if char==each:
+                count+=1
+            else:
+                result += (str(count)+char)
+                char = each
+                count = 1
+        result += (str(count)+char)
+        return result
+
 
