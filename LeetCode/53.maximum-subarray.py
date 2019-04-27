@@ -5,10 +5,10 @@
 #
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
-        max,curr=nums[0],0
+        max,curr=-10000000000,0
         for x in nums:
+            if curr<0:curr=0
             curr+=x
-            #if curr<0:curr=0
             if curr>max:max=curr
         return max
 
