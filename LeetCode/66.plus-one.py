@@ -10,3 +10,4 @@ class Solution:
         rst = [int(i) for i in str(int_rst)]
         return rst
 
+# 列表推导式
