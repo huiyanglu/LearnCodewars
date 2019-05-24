@@ -4,7 +4,7 @@
 def ans(a):
     rst = []
     for i in range(len(a)):
-        if a[i]!=' ':
+        if a[i].isalpha():
             asc_num = ord(a[i])+2
             if asc_num < 123:
                 rst.append(chr(asc_num))
@@ -16,4 +16,5 @@ def ans(a):
     return ''.join(rst)
 
 a = "g fmnc wms bgblr rpylqjyrc gr zw fylb. rfyrq ufyr amknsrcpq ypc dmp. bmgle gr gl zw fylb gq glcddgagclr ylb rfyr'q ufw rfgq rcvr gq qm jmle. sqgle qrpgle.kyicrpylq() gq pcamkkclbcb. lmu ynnjw ml rfc spj."
-print(ans(a))
+b = 'map'
+print(ans(b))
