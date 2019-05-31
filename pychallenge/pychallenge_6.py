@@ -6,10 +6,10 @@ import re
 import zipfile
 
 def ans(num):
-    meragefiledir = os.getcwd()
+    meragefiledir = os.getcwd() #当前路径
     filenames = os.listdir(meragefiledir+'/channel')
     infile = meragefiledir+'/channel.zip'
-    fzip = zipfile.ZipFile(infile)
+    fzip = zipfile.ZipFile(infile) #解压缩
     for i in range(0,len(filenames)):
         text1 = open(meragefiledir+'/channel/'+ str(num) +'.txt', 'r')
         text2 = text1.read()
@@ -18,7 +18,7 @@ def ans(num):
             next_num = int(find_next_num[0])
             num = next_num
             now_file = str(next_num)+'.txt'
-            print(fzip.getinfo(now_file).comment.decode("utf-8"), end="")
+            print(fzip.getinfo(now_file).comment.decode("utf-8"), end="") #zip文件的comment
         else:
             break
     return find_next_num
