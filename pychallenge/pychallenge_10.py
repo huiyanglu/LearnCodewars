@@ -10,3 +10,5 @@ def ans(n: int) -> str:
     return len(s)
 
 print(ans(30))
+
+# next level:http://www.pythonchallenge.com/pc/return/5808.html
