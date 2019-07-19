@@ -10,9 +10,9 @@ class Solution:
             return 0
         min = prices[0]
         for i in range(len(prices)):
-            if prices[i]<min:
+            if prices[i] < min:
                 min = prices[i]
-            if prices[i]-min>maxProfit:
-                maxProfit = prices[i]-min
+            if prices[i] - min > maxProfit:
+                maxProfit = prices[i] - min
         return maxProfit
 
